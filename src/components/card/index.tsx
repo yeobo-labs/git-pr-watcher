@@ -1,21 +1,20 @@
 import * as React from 'react';
 import { Details, DetailsProps } from './details';
 import { Identifier, IdentifierProps } from './identifier';
+import cardStyles from './card.module.css';
 
 export type CardProps = {
   url: string;
-  comments?: [];
 } & DetailsProps & IdentifierProps;
 
-export class Card extends React.Component<CardProps> {
+export default class Card extends React.Component<CardProps> {
   render() {
-    const { prNumber, title, url, author, assignee, status, comments } = this.props;
+    const { prNumber, title, author, assignee, status, date } = this.props;
     return (
-      <a href={url}>
+      <div className={cardStyles.card}>
         <Identifier prNumber={prNumber} status={status} />
-        <Details title={title} author={author} assignee={assignee} />
-        {JSON.stringify(comments)}
-      </a>
+        <Details title={title} author={author} assignee={assignee} date={date} />
+      </div>
     );
   }
 }

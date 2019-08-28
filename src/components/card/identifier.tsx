@@ -1,4 +1,6 @@
 import * as React from 'react';
+import classNames from 'classnames';
+import cardStyles from './card.module.css';
 
 export type IdentifierProps = {
   prNumber: number;
@@ -10,9 +12,8 @@ export class Identifier extends React.Component<IdentifierProps> {
     const { prNumber, status } = this.props;
 
     return (
-      <div>
-        <span>{prNumber}</span>
-        <span>{status}</span>
+      <div className={classNames(cardStyles.cardIdentifier, cardStyles[`${status}Status`])}>
+        {prNumber}
       </div>
     );
   }
