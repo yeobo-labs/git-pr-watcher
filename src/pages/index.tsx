@@ -1,7 +1,38 @@
 import * as React from 'react';
-
+import * as moment from 'moment';
 import Head from '../components/head';
+import Card from '../components/card/index';
 import { List } from '../components/list/index';
+
+const mockData = [
+  {
+    prNumber: 1,
+    url: 'https://github.com',
+    title: 'PR #1',
+    author: 'author',
+    assignee: 'assignee',
+    status: 'open',
+    date: moment().format('LLL'),
+  },
+  {
+    prNumber: 2,
+    url: 'https://github.com',
+    title: 'PR #1',
+    author: 'author',
+    assignee: 'assignee',
+    status: 'open',
+    date: moment().format('LLL'),
+  },
+  {
+    prNumber: 3,
+    url: 'https://github.com',
+    title: 'PR #1',
+    author: 'author',
+    assignee: 'assignee',
+    status: 'closed',
+    date: moment().format('LLL'),
+  }
+]
 
 const IndexPage = () => (
   <>
@@ -11,6 +42,7 @@ const IndexPage = () => (
       { id: 1, content: 'a' },
       { id: 2, content: 'b' }
     ]} />
+    {mockData.map(data => <Card key={`pr-${data.prNumber}`} {...data} />)}
   </>
 );
 
