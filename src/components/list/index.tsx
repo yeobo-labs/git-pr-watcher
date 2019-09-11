@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { DiGitPullRequest } from 'react-icons/di';
+import Card, { CardProps } from '../card/index';
 import listStyles from './list.module.css';
 
 export type ListProps = {
     heading: string;
-    items: object[];
+    items: CardProps[];
 };
 
-export class List extends React.Component<ListProps> {
+export default class List extends React.Component<ListProps> {
     render() {
         const { heading, items } = this.props;
 
@@ -16,7 +17,7 @@ export class List extends React.Component<ListProps> {
                 <DiGitPullRequest size={'32px'} />
                 <div className={listStyles.listTitle}>{heading}</div>
             </div>
-            {items.map(item => (<p>{JSON.stringify(item)}</p>))}
+            {items.map(item => (<Card key={`pr-${item.prNumber}`} {...item} />))}
         </div>);
     }
 }
