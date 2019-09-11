@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as moment from 'moment';
 import Head from '../components/head';
-import Card from '../components/card/index';
+import List from '../components/list/index';
 
 const mockData = [
   {
@@ -37,7 +37,7 @@ const IndexPage = () => (
   <>
     <Head title="Git PR Watcher" description="App that listens to Git PR updates" lang="en" />
     <h1>Hello world!</h1>
-    {mockData.map(data => <Card key={`pr-${data.prNumber}`} {...data} />)}
+    <List heading="List Heading" items={mockData} />
   </>
 );
 

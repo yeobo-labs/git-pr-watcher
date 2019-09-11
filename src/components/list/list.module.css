@@ -1,0 +1,16 @@
+.list {
+  border: 0.5px lightgray solid;
+  padding: 8px;
+}
+
+.listHeading {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.listTitle {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 24px;
+}
