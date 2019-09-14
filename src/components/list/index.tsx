@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DiGitPullRequest } from 'react-icons/di';
-import Card, { CardProps } from '../card/index';
+import Card, { CardProps } from '../card';
 import listStyles from './list.module.css';
 
 export type ListProps = {
