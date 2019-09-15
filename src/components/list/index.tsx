@@ -7,13 +7,15 @@ import listStyles from './list.module.css';
 
 export type ListProps = {
     heading: string;
+    prStore?: PRStore;
 };
 
 @inject('prStore')
 @observer
-export default class List extends React.Component<ListProps & { prStore: PRStore }> {
+export default class List extends React.Component<ListProps> {
     render() {
-        const { heading, prStore: { items } } = this.props;
+        const { heading, prStore } = this.props;
+        const items = (prStore || {}).items || [];
 
         return (<div className={listStyles.list}>
             <div className={listStyles.listHeading}>
