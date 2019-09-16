@@ -1,29 +1,23 @@
 import * as React from 'react';
+import { DetailsProps } from '../../types/card';
 import cardStyles from './card.module.css';
-
-export type DetailsProps = {
-  title: string;
-  author: string;
-  assignee: string;
-  date: string;
-}
 
 export class Details extends React.Component<DetailsProps> {
   render() {
-    const { title, author, assignee, date } = this.props;
+    const { title, author, assignees, createdAt } = this.props;
 
     return (
       <div className={cardStyles.cardDetails}>
         <div className={cardStyles.textTitle}>{title}</div>
         <div>
           <label>Author:</label>
-          {author}
+          {author.name}
         </div>
         <div>
-          <label>Assignee:</label>
-          {assignee}
+          <label>Assignees:</label>
+          {assignees.map(assignee => assignee.name).join(', ')}
         </div>
-        <div className={cardStyles.textDate}>{date}</div>
+        <div className={cardStyles.textDate}>{createdAt}</div>
       </div>
     );
   }
