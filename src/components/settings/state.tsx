@@ -1,11 +1,24 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { SettingsProps } from '../../types/settings';
+import { StateEnum } from '../../types/card';
 import Section from './section';
 
 @inject('settingsStore')
 @observer
 export default class SettingsState extends React.Component<SettingsProps> {
+	private states: string[] = [
+		StateEnum.OPEN,
+		StateEnum.CLOSED,
+		StateEnum.MERGED
+	];
+
+	constructor(props: SettingsProps) {
+		super(props);
+
+		this.handleStateCheck = this.handleStateCheck.bind(this);
+	}
+
 	handleStateCheck(event: any) {
 		return () => {
 			const { settingsStore } = this.props;
@@ -27,8 +40,9 @@ export default class SettingsState extends React.Component<SettingsProps> {
 		return (
 			<Section
 				heading="State Settings"
-				items={stateList}
-				onClick={this.handleStateCheck}
+				items={this.states}
+				value={stateList}
+				onChange={this.handleStateCheck}
 			/>
 		)
 	}

@@ -8,18 +8,15 @@ import SettingsState from '../components/settings/state';
 class SettingsPage extends React.Component {
 	private settingsStore: SettingsStore = new SettingsStore();
 
-	componentDidMount() {
+	render() {
 		const { github: { viewer } } = this.props.data;
 		const repositoryList = viewer.repositories.nodes.map((node: any) => node.name);
-		this.settingsStore.setRepositoryList(repositoryList);
-	}
 
-	render() {
 		return (
 			<Provider settingsStore={this.settingsStore}>
 				<div>
 					<h1>Settings</h1>
-					<SettingsRepository />
+					<SettingsRepository items={repositoryList} />
 					<SettingsState />
 				</div>
 			</Provider>

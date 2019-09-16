@@ -4,8 +4,13 @@ export type SettingsProps = {
 	settingsStore: SettingsStore;
 }
 
+export type SettingsRepositoryProps = {
+	items: string[];
+} & SettingsProps;
+
 export type SettingsSectionProps = {
 	heading: string;
 	items: string[];
-	onClick: any;
+	value: string[];
+	onChange: any;
 }
