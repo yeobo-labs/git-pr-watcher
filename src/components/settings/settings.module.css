@@ -1,0 +1,26 @@
+.settings {
+	border: 0.5px lightgray solid;
+	margin-bottom: 12px;
+}
+
+.settingsHeading {
+	padding: 8px;
+	display: flex;
+	align-items: flex-end;
+	border-bottom: 0.5px lightgray solid;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.settingsItemList {
+	padding: 10px;
+}
+
+.settingsItem {
+	padding: 4px;
+}
+
+.settingsLabel {
+	margin-left: 4px;
+}
