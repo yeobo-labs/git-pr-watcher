@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { Provider } from 'mobx-react';
-import { PRStore } from '../stores/pull-request-store';
+import { GithubStore } from '../stores/github-store';
 import Head from '../components/head';
 import List from '../components/list';
 
 class IndexPage extends React.Component {
-  private prStore: PRStore = new PRStore()
+  private githubStore: GithubStore = new GithubStore()
 
   render() {
     return (
-      <Provider prStore={this.prStore}>
+      <Provider githubStore={this.githubStore}>
         <div>
           <Head title="Git PR Watcher" description="App that listens to Git PR updates" lang="en" />
-          <h1>Hello world!</h1>
-          <List heading="List Heading" />
+          {this.githubStore.repository.map((repo, index) => (
+            <List key={`repository-${index}`} {...repo} />
+          ))}
         </div>
       </Provider>
     );
