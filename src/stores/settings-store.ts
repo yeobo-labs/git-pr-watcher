@@ -15,22 +15,17 @@ export class SettingsStore {
 	}
 
 	@action
-	addRepository( repository: string ) {
-		this.repositoryList.push(repository);
+	isRepositoryExists( repository: string ) {
+		return this.repositoryList.includes( repository );
 	}
 
 	@action
-	removeRepository( repository: string ) {
-		this.repositoryList = this.repositoryList.filter(repo => repo !== repository);
+	setStateList( stateList: string[] ) {
+		this.stateList = stateList;
 	}
 
 	@action
-	addState( state: string ) {
-		this.stateList.push(state);
-	}
-
-	@action
-	removeState( state: string ) {
-		this.stateList = this.stateList.filter(s => s !== state);
+	isStateExists( state: string ) {
+		return this.stateList.includes( state );
 	}
 }
