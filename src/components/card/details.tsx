@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as moment from 'moment';
 import { DetailsProps } from '../../types/card';
 import cardStyles from './card.module.css';
 
@@ -17,7 +18,7 @@ export class Details extends React.Component<DetailsProps> {
           <label>Assignees:</label>
           {assignees.map(assignee => assignee.name).join(', ')}
         </div>
-        <div className={cardStyles.textDate}>{createdAt}</div>
+        <div className={cardStyles.textDate}>{moment(createdAt).format('LLL')}</div>
       </div>
     );
   }
