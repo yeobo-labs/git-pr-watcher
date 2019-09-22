@@ -1,22 +1,19 @@
 import * as React from 'react';
-import { DiGitPullRequest } from 'react-icons/di';
-import { observer } from 'mobx-react';
-import { ListProps } from '../../types/list';
-import { CardProps } from '../../types/card';
-import Card from '../card';
-import listStyles from './list.module.css';
+// import { DiGitPullRequest } from 'react-icons/di';
+import { inject, observer } from 'mobx-react';
+// import { ListProps } from '../../types/list';
+// import { CardProps } from '../../types/card';
+// import Card from '../card';
+// import listStyles from './list.module.css';
 
+@inject('settingsStore')
 @observer
-export default class List extends React.Component<ListProps> {
+export default class List extends React.Component {
     render() {
-        const { name = '', items = [] } = this.props;
-
-        return (<div className={listStyles.list}>
-            <div className={listStyles.listHeading}>
-                <DiGitPullRequest size={'32px'} />
-                <div className={listStyles.listTitle}>{name}</div>
+        return (
+            <div>
+                List
             </div>
-            {items.map((item: CardProps) => (<Card key={`pr-${item.prNumber}`} {...item} />))}
-        </div>);
+        );
     }
 }

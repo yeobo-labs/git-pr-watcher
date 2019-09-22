@@ -25,6 +25,11 @@ export class SettingsStore {
 	}
 
 	@action
+	setStateList( stateList: string[] ) {
+		this.stateList = stateList;
+	}
+
+	@action
 	addState( state: string ) {
 		this.stateList.push(state);
 	}
