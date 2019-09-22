@@ -4,11 +4,11 @@ import { inject, observer } from 'mobx-react';
 import { ListPageProps, ListProps } from '../../types/list'
 import List from './list';
 
-@inject('settingsStore')
+@inject('settingsStore', 'githubStore')
 @observer
 class ListPage extends React.Component<ListPageProps> {
     render() {
-        const { settingsStore } = this.props;
+        const { settingsStore, githubStore } = this.props;
 
         return (
             <StaticQuery
@@ -33,6 +33,8 @@ class ListPage extends React.Component<ListPageProps> {
 
                         return data;
                     }, []);
+
+                    githubStore.set( lists );
 
                     return (
                         <div>
