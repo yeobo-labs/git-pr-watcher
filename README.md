@@ -1,31 +1,23 @@
-# Gatsby MobX starter
+# Git PR Watcher
 
-Gatsby + MobX + TypeScript starter.
+Mini web application that fetches Github repositories and pull requests
 
-Why? Because Gatsby is excellent [also for React apps (not just static sites)](https://www.gatsbyjs.org/blog/2018-10-15-beyond-static-intro/) and I wanted to have a quick alternative to `create-react-app --typescript` with a couple of things configured.
-
-## Features
+## Stack
 
 - Gatsby v2 + TypeScript
 - MobX with decorators
-- Two examples based on [@mweststrate's Egghead course](https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx):
-    - "Counter" as a basic store and an observer
-    - "Temperature" as a demo of `<Provider>` and type-safe `inject`
-- `.editorconfig` & Prettier
+- Github GQL API
 - TSLint
-- Jest setup
+- Jest
 
 ## Usage
 
-1. Make sure you're in a Linux-y shell (on Windows, use e.g. Git Bash or MSYS2; `rm -rf` and similar might be called from npm scripts).
-2. `yarn`
-3. `yarn start`
+1. Create a `.env` file with your personal access token from GitHub
+2. Run `gatsby develop`
 
-Other notable scripts (see [`package.json`](package.json)):
+## To do
 
-- `yarn build`
-    - (You can verify the statically generated site with e.g. `npx local-web-server -d public`.)
-- `yarn tsc`
-- `yarn lint`
-- `yarn prettier`
-- `yarn test` or `yarn test --watch`
+- Create unit/integration tests
+- Listen to Github changes through subscriptions
+- Configure `electron` to allow usage as desktop application
+- Create notifications based on Github changes
