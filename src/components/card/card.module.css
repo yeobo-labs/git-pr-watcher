@@ -46,8 +46,12 @@
   background-color: #77DD77;
 }
 
-.closedStatus {
+.mergedStatus {
   background-color: #A16AE8;
+}
+
+.closedStatus {
+  background-color: #8D918D;
 }
 
 a {

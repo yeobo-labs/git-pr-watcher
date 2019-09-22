@@ -10,7 +10,11 @@ import styles from './settings.module.css';
 @observer
 class Settings extends React.Component<SettingsProps> {
     private repositoryList: string[] = [];
-    private stateList: string[] = [];
+    private stateList: string[] = [
+        StateEnum.OPEN,
+		StateEnum.CLOSED,
+		StateEnum.MERGED
+    ];
     private states: string[] = [
 		StateEnum.OPEN,
 		StateEnum.CLOSED,
@@ -28,19 +32,23 @@ class Settings extends React.Component<SettingsProps> {
     handleRepositoryCheck(event: any) {
 		const { value, checked } = event.currentTarget;
 
-		return checked
-			? this.repositoryList.push( value )
-			: this.repositoryList.filter( repo => repo !== value );
+        if( checked ) {
+            return this.repositoryList.push( value );
+        }
+
+        this.repositoryList = this.repositoryList.filter( repo => repo !== value );
+        return;
     }
     
     handleStateCheck(event: any) {
-		return () => {
-			const { value, checked } = event.currentTarget;
+		const { value, checked } = event.currentTarget;
 
-			return checked
-                ? this.stateList.push( value )
-                : this.stateList.filter( state => state !== value );
-		}
+        if( checked ) {
+            return this.stateList.push( value );
+        }
+
+        this.stateList = this.stateList.filter( state => state !== value );
+        return;
     }
     
     handleSave() {
