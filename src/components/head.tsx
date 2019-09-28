@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 interface HeadProps {
   description: string;
   lang: string;
-  title: string,
+  title: string;
 }
 
 class Head extends React.Component<HeadProps> {

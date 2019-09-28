@@ -7,7 +7,7 @@ export class Identifier extends React.Component<IdentifierProps> {
   render() {
     const { prNumber, state } = this.props;
 
-    const className = classNames(cardStyles.cardIdentifier, cardStyles[`${state.toLowerCase()}Status`])
+    const className = classNames(cardStyles.cardIdentifier, cardStyles[`${state.toLowerCase()}Status`]);
     return (
       <div className={className}>
         {prNumber}

@@ -12,25 +12,25 @@ class Settings extends React.Component<SettingsProps> {
     private repositoryList: string[] = [];
     private stateList: string[] = [
         StateEnum.OPEN,
-		StateEnum.CLOSED,
-		StateEnum.MERGED
+    StateEnum.CLOSED,
+    StateEnum.MERGED
     ];
     private states: string[] = [
-		StateEnum.OPEN,
-		StateEnum.CLOSED,
-		StateEnum.MERGED
-	];
+    StateEnum.OPEN,
+    StateEnum.CLOSED,
+    StateEnum.MERGED
+  ];
 
     constructor(props: SettingsProps) {
-		super(props);
+    super(props);
 
         this.handleRepositoryCheck = this.handleRepositoryCheck.bind(this);
         this.handleStateCheck = this.handleStateCheck.bind(this);
         this.handleSave = this.handleSave.bind(this);
-	}
+  }
 
     handleRepositoryCheck(event: any) {
-		const { value, checked } = event.currentTarget;
+    const { value, checked } = event.currentTarget;
 
         if( checked ) {
             return this.repositoryList.push( value );
@@ -41,7 +41,7 @@ class Settings extends React.Component<SettingsProps> {
     }
     
     handleStateCheck(event: any) {
-		const { value, checked } = event.currentTarget;
+    const { value, checked } = event.currentTarget;
 
         if( checked ) {
             return this.stateList.push( value );
@@ -58,8 +58,8 @@ class Settings extends React.Component<SettingsProps> {
         settingsStore.setRepositoryList( this.repositoryList );
     }
 
-	render() {
-		return (
+  render() {
+    return (
             <StaticQuery
                 query={query}
                 // tslint:disable-next-line:jsx-no-lambda
@@ -91,8 +91,8 @@ class Settings extends React.Component<SettingsProps> {
                     );
                 }}
             />
-		);
-	}
+    );
+  }
 }
 
 export const query = graphql`

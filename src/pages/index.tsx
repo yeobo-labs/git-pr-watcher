@@ -8,7 +8,7 @@ import Settings from '../components/settings';
 
 @observer
 class IndexPage extends React.Component {
-  private githubStore: GithubStore = new GithubStore()
+  private githubStore: GithubStore = new GithubStore();
   private settingsStore: SettingsStore = new SettingsStore();
 
   render() {

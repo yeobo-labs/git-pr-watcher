@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { inject, observer } from 'mobx-react';
-import { ListPageProps, ListProps } from '../../types/list'
+import { ListPageProps, ListProps } from '../../types/list';
 import List from './list';
 
 @inject('settingsStore', 'githubStore')
@@ -26,7 +26,7 @@ class ListPage extends React.Component<ListPageProps> {
                             assignees: pr.assignees.nodes || [],
                             comments: pr.comments.nodes || [],
                         };
-                        const repository = data.find(list => list.name === name)
+                        const repository = data.find(list => list.name === name);
                         !repository
                             ? data.push({ name, items: [ prData ] })
                             : (repository.items || []).push(prData);
