@@ -7,6 +7,9 @@
     "member-access": false,
     "interface-name": false,
     "object-literal-sort-keys": false,
-    "interface-over-type-literal": false
+    "interface-over-type-literal": false,
+    "trailing-comma": true,
+    "semicolon": true,
+    "indent": [true, "tabs", 2]
   }
 }
