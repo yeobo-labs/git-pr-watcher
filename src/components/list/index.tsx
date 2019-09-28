@@ -7,46 +7,46 @@ import List from './list';
 @inject('settingsStore', 'githubStore')
 @observer
 class ListPage extends React.Component<ListPageProps> {
-		render() {
-				const { settingsStore, githubStore } = this.props;
+    render() {
+        const { settingsStore, githubStore } = this.props;
 
-				return (
-						<StaticQuery
-								query={query}
-								// tslint:disable-next-line:jsx-no-lambda
-								render={({github: {viewer: {pullRequests}}}) => {
-										const lists = pullRequests.nodes.reduce((data: ListProps[], pr: any) => {
-												const { repository: { name }, state } = pr;
-												if(! settingsStore.isRepositoryExists(name) || ! settingsStore.isStateExists(state)) {
-														return data;
-												}
+        return (
+            <StaticQuery
+                query={query}
+                // tslint:disable-next-line:jsx-no-lambda
+                render={({github: {viewer: {pullRequests}}}) => {
+                    const lists = pullRequests.nodes.reduce((data: ListProps[], pr: any) => {
+                        const { repository: { name }, state } = pr;
+                        if(! settingsStore.isRepositoryExists(name) || ! settingsStore.isStateExists(state)) {
+                            return data;
+                        }
 
-												const prData = {
-														...pr,
-														assignees: pr.assignees.nodes || [],
-														comments: pr.comments.nodes || [],
-												};
-												const repository = data.find(list => list.name === name);
-												!repository
-														? data.push({ name, items: [ prData ] })
-														: (repository.items || []).push(prData);
+                        const prData = {
+                            ...pr,
+                            assignees: pr.assignees.nodes || [],
+                            comments: pr.comments.nodes || [],
+                        };
+                        const repository = data.find(list => list.name === name);
+                        !repository
+                            ? data.push({ name, items: [ prData ] })
+                            : (repository.items || []).push(prData);
 
-												return data;
-										}, []);
+                        return data;
+                    }, []);
 
-										githubStore.set( lists );
+                    githubStore.set( lists );
 
-										return (
-												<div>
-														{lists.map( ( {name, items}: ListProps ) => (
-																<List key={`list-${name}`} name={name} items={items} />)
-														)}
-												</div>
-										);
-								}}
-						/>
-				);
-		}
+                    return (
+                        <div>
+                            {lists.map( ( {name, items}: ListProps ) => (
+                                <List key={`list-${name}`} name={name} items={items} />)
+                            )}
+                        </div>
+                    );
+                }}
+            />
+        );
+    }
 }
 
 export const query = graphql`

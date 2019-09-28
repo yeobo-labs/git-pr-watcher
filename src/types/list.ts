@@ -8,10 +8,10 @@ import { SettingsStore } from '../stores/settings-store';
  * items - pull request list
  */
 export type ListProps = {
-		name?: string;
-		items?: CardProps[];
+    name?: string;
+    items?: CardProps[];
 };
 
 export type ListPageProps = {
-		settingsStore?: 
+    settingsStore?: 
 };

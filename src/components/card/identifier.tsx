@@ -4,14 +4,14 @@ import { IdentifierProps } from '../../types/card';
 import cardStyles from './card.module.css';
 
 export class Identifier extends React.Component<IdentifierProps> {
-	render() {
-		const { prNumber, state } = this.props;
+  render() {
+    const { prNumber, state } = this.props;
 
-		const className = classNames(cardStyles.cardIdentifier, cardStyles[`${state.toLowerCase()}Status`]);
-		return (
-			<div className={className}>
-				{prNumber}
-			</div>
-		);
-	}
+    const className = classNames(cardStyles.cardIdentifier, cardStyles[`${state.toLowerCase()}Status`]);
+    return (
+      <div className={className}>
+        {prNumber}
+      </div>
+    );
+  }
 }
