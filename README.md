@@ -1,6 +1,6 @@
 # Git PR Watcher
 
-Mini web application that fetches Github repositories and pull requests
+Mini web application that fetches Github repositories and pull requests.
 
 ## Stack
 
