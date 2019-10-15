@@ -6,12 +6,12 @@ export type ListHeaderProps = {
     name: string;
     filterText?: string | '';
     sortOrder?: string | 'ASC';
+    handleSetFilter(name: string, filterText: string): void;
 };
 
 export type ListProps = {
-    header: ListHeaderProps;
     items?: CardProps[];
-};
+} & ListHeaderProps;
 
 export type ListPageProps = {
     settingsStore?: SettingsStore;

@@ -7,6 +7,12 @@ import List from './list';
 @inject('settingsStore', 'githubStore')
 @observer
 class ListPage extends React.Component<ListPageProps> {
+    handleSetFilter = ( filterText: string, name: string ) => {
+        const { githubStore } = this.props;
+
+        githubStore.setListFilter( filterText, name );
+    }
+
     render() {
         const { settingsStore, githubStore } = this.props;
 
@@ -26,9 +32,9 @@ class ListPage extends React.Component<ListPageProps> {
                             assignees: pr.assignees.nodes || [],
                             comments: pr.comments.nodes || [],
                         };
-                        const repository = data.find(list => list.header.name === name);
+                        const repository = data.find(list => list.name === name);
                         !repository
-                            ? data.push({ header: {name}, items: [ prData ] })
+                            ? data.push({ name, items: [ prData ] })
                             : (repository.items || []).push(prData);
 
                         return data;
@@ -38,8 +44,13 @@ class ListPage extends React.Component<ListPageProps> {
 
                     return (
                         <div>
-                            {lists.map( ( {header, items}: ListProps ) => (
-                                <List key={`list-${header.name}`} header={header} items={items} />)
+                            {lists.map( ( {name, items}: ListProps ) => (
+                                <List
+                                    key={`list-${name}`}
+                                    name={name}
+                                    items={items}
+                                    handleSetFilter={this.handleSetFilter}
+                                />)
                             )}
                         </div>
                     );

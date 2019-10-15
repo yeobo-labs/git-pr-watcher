@@ -1,6 +1,7 @@
 .list {
   border: 0.5px lightgray solid;
   padding: 8px;
+  margin-bottom: 8px;
 }
 
 .listHeading {

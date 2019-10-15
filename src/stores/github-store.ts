@@ -13,4 +13,13 @@ export class GithubStore {
   set( repository: ListProps[] ) {
     this.repository = repository;
   }
+
+  @action
+  setListFilter( filterText: string, name: string ) {
+    this.repository.forEach((repo: ListProps) => {
+      if(repo.name === name) {
+        repo.filterText = filterText;
+      }
+    });
+  }
 }

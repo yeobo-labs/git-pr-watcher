@@ -9,11 +9,22 @@ import listStyles from './list.module.css';
 @observer
 export default class List extends React.Component<ListProps> {
     render() {
-        const { header: { name, filterText = '' }, items = [] } = this.props;
+        const {
+            name,
+            filterText = '',
+            items = [],
+            handleSetFilter,
+        } = this.props;
 
         return (<div className={listStyles.list}>
-            <ListHeader name={name} filterText={filterText} />
-            {items.map((item: CardProps) => (<Card key={`pr-${item.prNumber}`} {...item} />))}
+            <ListHeader
+                name={name}
+                filterText={filterText}
+                handleSetFilter={handleSetFilter}
+            />
+            {items.map((item: CardProps) => (
+                <Card key={`pr-${item.prNumber}`} {...item} />
+            ))}
         </div>);
     }
 }
