@@ -9,10 +9,10 @@ import listStyles from './list.module.css';
 @observer
 export default class List extends React.Component<ListProps> {
     render() {
-        const { name = '', items = [] } = this.props;
+        const { header: { name, filterText = '' }, items = [] } = this.props;
 
         return (<div className={listStyles.list}>
-            <ListHeader name={name} />
+            <ListHeader name={name} filterText={filterText} />
             {items.map((item: CardProps) => (<Card key={`pr-${item.prNumber}`} {...item} />))}
         </div>);
     }

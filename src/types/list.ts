@@ -4,12 +4,12 @@ import { GithubStore } from '../stores/github-store';
 
 export type ListHeaderProps = {
     name: string;
-    search?: string;
+    filterText?: string | '';
     sortOrder?: string | 'ASC';
 };
 
 export type ListProps = {
-    name?: string;
+    header: ListHeaderProps;
     items?: CardProps[];
 };
 

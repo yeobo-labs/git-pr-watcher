@@ -7,7 +7,7 @@ import listStyles from './list.module.css';
 
 export default class ListHeader extends React.Component<ListHeaderProps> {
   render() {
-    const { name } = this.props;
+    const { name, filterText } = this.props;
 
     return (
       <div className={listStyles.listHeading}>
@@ -18,8 +18,8 @@ export default class ListHeader extends React.Component<ListHeaderProps> {
         <div className={listStyles.listHeadingComponent}>
           <div className={classNames(listStyles.listHeadingComponent, listStyles.listFilterContainer)}>
             <input
-              name="filter"
-              placeholder="Filter list"
+              placeholder={'Filter list'}
+              value={filterText}
               className={listStyles.listFilterInput}
             />
             <MdSearch />

@@ -26,9 +26,9 @@ class ListPage extends React.Component<ListPageProps> {
                             assignees: pr.assignees.nodes || [],
                             comments: pr.comments.nodes || [],
                         };
-                        const repository = data.find(list => list.name === name)
+                        const repository = data.find(list => list.header.name === name);
                         !repository
-                            ? data.push({ name, items: [ prData ] })
+                            ? data.push({ header: {name}, items: [ prData ] })
                             : (repository.items || []).push(prData);
 
                         return data;
@@ -38,8 +38,8 @@ class ListPage extends React.Component<ListPageProps> {
 
                     return (
                         <div>
-                            {lists.map( ( {name, items}: ListProps ) => (
-                                <List key={`list-${name}`} name={name} items={items} />)
+                            {lists.map( ( {header, items}: ListProps ) => (
+                                <List key={`list-${header.name}`} header={header} items={items} />)
                             )}
                         </div>
                     );
