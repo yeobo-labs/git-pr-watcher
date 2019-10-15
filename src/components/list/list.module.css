@@ -7,6 +7,28 @@
   margin-bottom: 12px;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
+}
+
+.listHeadingComponent {
+  display: flex;
+  align-items: center;
+}
+
+.listFilterContainer {
+  padding: 8px 12px;
+  margin-right: 4px;
+  border: solid 0.5px lightgray;
+}
+
+.listFilterInput {
+  border: none;
+  background: none;
+  margin-right: 4px;
+  font-size: 12px;
+}
+.listFilterInput:focus {
+  outline: none;
 }
 
 .listTitle {
