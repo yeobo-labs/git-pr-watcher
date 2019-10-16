@@ -25,7 +25,7 @@ module.exports = {
         name: 'GitHub PRoll',
         short_name: 'GitHub PRoll',
         start_url: '/',
-        icon: 'src/assets/favicon.ico'
+        icon: 'static/assets/favicon.ico'
       }
     }
   ],
