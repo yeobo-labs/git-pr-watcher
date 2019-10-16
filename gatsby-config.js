@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Git PR Watcher',
+    title: 'GitHub PRoll',
   },
   plugins: [
     'gatsby-plugin-typescript',
@@ -19,5 +19,14 @@ module.exports = {
         }
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'GitHub PRoll',
+        short_name: 'GitHub PRoll',
+        start_url: '/',
+        icon: 'src/assets/favicon.ico'
+      }
+    }
   ],
 };
