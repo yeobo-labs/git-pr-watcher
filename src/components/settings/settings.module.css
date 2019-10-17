@@ -23,6 +23,7 @@
 
 .settingsLabel {
 	margin-left: 4px;
+	color: #fff;
 }
 
 .settingsButton {
@@ -30,9 +31,8 @@
 	float: right;
 	margin: 12px;
 	padding: 8px 14px;
-	border: solid 1px rgb(16, 245, 104);
+	border: solid 1px #b1a1d1;
 	border-radius: 4px;
 	cursor: pointer;
-	background-color: rgb(16, 245, 104);
-	color: #fff;
+	background-color: #b1a1d1;
 }

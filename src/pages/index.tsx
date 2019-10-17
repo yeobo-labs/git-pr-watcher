@@ -22,10 +22,12 @@ class IndexPage extends React.Component {
             lang="en"
           />
           <Banner />
-          {/* {this.settingsStore.repositoryList.length === 0
-            ? <Settings />
-            : <List />
-          } */}
+          <div>
+            {this.settingsStore.repositoryList.length === 0
+              ? <Settings />
+              : <List />
+            }
+          </div>
         </div>
       </Provider>
     );
