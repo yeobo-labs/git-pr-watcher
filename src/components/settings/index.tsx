@@ -69,18 +69,20 @@ class Settings extends React.Component<SettingsProps> {
                     return (
                         <div>
                             <h1>Settings</h1>
-                            <Section
-                                heading="Repository Settings"
-                                items={repositories}
-                                value={this.repositoryList}
-                                onChange={this.handleRepositoryCheck}
-                            />
-                            <Section
-                                heading="State Settings"
-                                items={this.states}
-                                value={this.stateList}
-                                onChange={this.handleStateCheck}
-                            />
+                            <div className={styles.container}>
+                                <Section
+                                    heading="Repository Settings"
+                                    items={repositories}
+                                    value={this.repositoryList}
+                                    onChange={this.handleRepositoryCheck}
+                                />
+                                <Section
+                                    heading="State Settings"
+                                    items={this.states}
+                                    value={this.stateList}
+                                    onChange={this.handleStateCheck}
+                                />
+                            </div>
                             <button
                                 className={styles.settingsButton}
                                 onClick={this.handleSave}

@@ -1,6 +1,15 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+}
+
 .settings {
 	border: 0.5px lightgray solid;
 	margin-bottom: 12px;
+	margin-left: 4px;
+	margin-right: 4px;
+	height: auto;
+	width: 100%;
 }
 
 .settingsHeading {
