@@ -17,8 +17,8 @@ export default class List extends React.Component<ListProps> {
                 <div className={styles.listTitle}>{name}</div>
             </div>
             {items.map((item: CardProps) => (
-                <div className={styles.listItem}>
-                    <Card key={`pr-${item.prNumber}`} {...item} />
+                <div className={styles.listItem} key={`${name}-${item.prNumber}`}>
+                    <Card {...item} />
                 </div>
             ))}
         </div>);

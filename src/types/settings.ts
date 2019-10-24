@@ -7,6 +7,6 @@ export type SettingsProps = {
 export type SettingsSectionProps = {
   heading: string;
   items: string[];
-  value: string[];
+  value: Set<string>;
   onChange: any;
 };
