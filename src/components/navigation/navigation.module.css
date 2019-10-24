@@ -1,0 +1,14 @@
+.container {
+  z-index: 100;
+  width: 100%;
+  margin: 0;
+  padding: 12px;
+  font-size: 20px;
+  background-color: #b1a1d1;
+  color: #000;
+}
+
+.siteName {
+  font-weight: 700;
+  font-size: 32px;
+}

@@ -3,6 +3,7 @@ import { observer, Provider } from 'mobx-react';
 import { GithubStore } from '../stores/github-store';
 import { SettingsStore } from '../stores/settings-store';
 import Head from '../components/head';
+import Navigation from '../components/navigation';
 import Banner from '../components/banner';
 import List from '../components/list';
 import Settings from '../components/settings';
@@ -21,13 +22,14 @@ class IndexPage extends React.Component {
             description="Compact list of all your GitHub pull-requests - in one view!"
             lang="en"
           />
+          <Navigation />
           <Banner />
-          <div>
+          <main>
             {this.settingsStore.repositoryList.length === 0
               ? <Settings />
               : <List />
             }
-          </div>
+          </main>
         </div>
       </Provider>
     );
