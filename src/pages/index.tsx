@@ -3,6 +3,7 @@ import { observer, Provider } from 'mobx-react';
 import { GithubStore } from '../stores/github-store';
 import { SettingsStore } from '../stores/settings-store';
 import Head from '../components/head';
+import Banner from '../components/banner';
 import List from '../components/list';
 import Settings from '../components/settings';
 
@@ -15,11 +16,18 @@ class IndexPage extends React.Component {
     return (
       <Provider githubStore={this.githubStore} settingsStore={this.settingsStore}>
         <div>
-          <Head title="Git PR Watcher" description="App that listens to Git PR updates" lang="en" />
-          {this.settingsStore.repositoryList.length === 0
-            ? <Settings />
-            : <List />
-          }
+          <Head
+            title="GitHub PRoll"
+            description="Compact list of all your GitHub pull-requests - in one view!"
+            lang="en"
+          />
+          <Banner />
+          <div>
+            {this.settingsStore.repositoryList.length === 0
+              ? <Settings />
+              : <List />
+            }
+          </div>
         </div>
       </Provider>
     );

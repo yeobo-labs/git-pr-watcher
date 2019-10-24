@@ -9,17 +9,17 @@ import styles from './settings.module.css';
 @inject('settingsStore')
 @observer
 class Settings extends React.Component<SettingsProps> {
-    private repositoryList: string[] = [];
-    private stateList: string[] = [
+    private repositoryList: Set<string> = new Set();
+    private stateList: Set<string> = new Set([
         StateEnum.OPEN,
-    StateEnum.CLOSED,
-    StateEnum.MERGED
-    ];
+        StateEnum.CLOSED,
+        StateEnum.MERGED
+    ]);
     private states: string[] = [
-    StateEnum.OPEN,
-    StateEnum.CLOSED,
-    StateEnum.MERGED
-  ];
+        StateEnum.OPEN,
+        StateEnum.CLOSED,
+        StateEnum.MERGED
+    ];
 
     constructor(props: SettingsProps) {
     super(props);
@@ -29,33 +29,27 @@ class Settings extends React.Component<SettingsProps> {
         this.handleSave = this.handleSave.bind(this);
   }
 
-    handleRepositoryCheck(event: any) {
-    const { value, checked } = event.currentTarget;
-
-        if( checked ) {
-            return this.repositoryList.push( value );
-        }
-
-        this.repositoryList = this.repositoryList.filter( repo => repo !== value );
+    handleRepositoryCheck(value: string, checked: boolean) {
+        (! checked)
+            ? this.repositoryList.add(value)
+            : this.repositoryList.delete(value);
+        this.forceUpdate();
         return;
     }
     
-    handleStateCheck(event: any) {
-    const { value, checked } = event.currentTarget;
-
-        if( checked ) {
-            return this.stateList.push( value );
-        }
-
-        this.stateList = this.stateList.filter( state => state !== value );
+    handleStateCheck(value: string, checked: boolean) {
+        (! checked)
+            ? this.stateList.add(value)
+            : this.stateList.delete(value);
+        this.forceUpdate();
         return;
     }
     
     handleSave() {
         const { settingsStore } = this.props;
 
-        settingsStore.setStateList( this.stateList );
-        settingsStore.setRepositoryList( this.repositoryList );
+        settingsStore.setStateList( Array.from(this.stateList.values()) );
+        settingsStore.setRepositoryList( Array.from(this.repositoryList.values()) );
     }
 
   render() {
@@ -69,18 +63,20 @@ class Settings extends React.Component<SettingsProps> {
                     return (
                         <div>
                             <h1>Settings</h1>
-                            <Section
-                                heading="Repository Settings"
-                                items={repositories}
-                                value={this.repositoryList}
-                                onChange={this.handleRepositoryCheck}
-                            />
-                            <Section
-                                heading="State Settings"
-                                items={this.states}
-                                value={this.stateList}
-                                onChange={this.handleStateCheck}
-                            />
+                            <div className={styles.container}>
+                                <Section
+                                    heading="Repository Settings"
+                                    items={repositories}
+                                    value={this.repositoryList}
+                                    onChange={this.handleRepositoryCheck}
+                                />
+                                <Section
+                                    heading="State Settings"
+                                    items={this.states}
+                                    value={this.stateList}
+                                    onChange={this.handleStateCheck}
+                                />
+                            </div>
                             <button
                                 className={styles.settingsButton}
                                 onClick={this.handleSave}
