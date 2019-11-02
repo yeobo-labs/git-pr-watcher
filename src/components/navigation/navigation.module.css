@@ -30,7 +30,8 @@
   vertical-align: middle;
 }
 
-.navItem:hover:not(navItemLogo) {
+.navItem:hover:not(navItemLogo),
+.navItemActive {
   padding-bottom: 4px;
   border-bottom: 4px solid #8158d4;
   cursor: pointer;
