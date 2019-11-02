@@ -3,6 +3,7 @@ import { observer, Provider } from 'mobx-react';
 import { GithubStore } from '../stores/github-store';
 import { SettingsStore } from '../stores/settings-store';
 import { NavigationStore } from '../stores/navigation-store';
+import { PagesEnum } from '../types/navigation';
 import Head from '../components/head';
 import Navigation from '../components/navigation';
 import Banner from '../components/banner';
@@ -31,10 +32,15 @@ class IndexPage extends React.Component {
           <Navigation />
           <Banner />
           <main>
-            {this.settingsStore.repositoryList.length === 0
-              ? <Settings />
-              : <List />
-            }
+            {(() => {
+              switch(this.navigationStore.activePage) {
+                case PagesEnum.SETTINGS:
+                    return <Settings />;
+                case PagesEnum.LIST:
+                  return <List />;
+                default: return <div />;
+              }
+            })()}
           </main>
         </div>
       </Provider>

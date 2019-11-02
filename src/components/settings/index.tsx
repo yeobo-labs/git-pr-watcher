@@ -6,7 +6,7 @@ import { SettingsProps } from '../../types/settings';
 import Section from './section';
 import styles from './settings.module.css';
 
-@inject('settingsStore')
+@inject('settingsStore', 'navigationStore')
 @observer
 class Settings extends React.Component<SettingsProps> {
     private repositoryList: Set<string> = new Set();
@@ -46,10 +46,12 @@ class Settings extends React.Component<SettingsProps> {
     }
     
     handleSave() {
-        const { settingsStore } = this.props;
+        const { settingsStore, navigationStore } = this.props;
 
         settingsStore.setStateList( Array.from(this.stateList.values()) );
         settingsStore.setRepositoryList( Array.from(this.repositoryList.values()) );
+
+        navigationStore.setActivePage( 'List' );
     }
 
   render() {
