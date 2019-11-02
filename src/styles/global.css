@@ -5,6 +5,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  color: #b1a1d1;
+}
+
 main {
   margin: 8px;
 }
