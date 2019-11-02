@@ -13,5 +13,5 @@ export type ListProps = {
 };
 
 export type ListPageProps = {
-    settingsStore?: 
+    settingsStore?: SettingsStore;
 };

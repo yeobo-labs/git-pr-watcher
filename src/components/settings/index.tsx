@@ -22,7 +22,7 @@ class Settings extends React.Component<SettingsProps> {
     ];
 
     constructor(props: SettingsProps) {
-    super(props);
+        super(props);
 
         this.handleRepositoryCheck = this.handleRepositoryCheck.bind(this);
         this.handleStateCheck = this.handleStateCheck.bind(this);
