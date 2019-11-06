@@ -2,4 +2,13 @@ body {
   background-color: #1E1C23;
   font-family: sans-serif;
   color: #b1a1d1;
+  margin: 0;
+}
+
+h1 {
+  color: #b1a1d1;
+}
+
+main {
+  margin: 8px;
 }

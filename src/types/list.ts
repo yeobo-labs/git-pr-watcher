@@ -1,5 +1,6 @@
 import { CardProps } from './card';
 import { SettingsStore } from '../stores/settings-store';
+import { NavigationStore } from '../stores/navigation-store';
 
 /**
  * Represents a list of pull requests
@@ -13,5 +14,6 @@ export type ListProps = {
 };
 
 export type ListPageProps = {
-    settingsStore?: 
+    settingsStore?: SettingsStore;
+    navigationStore: NavigationStore;
 };

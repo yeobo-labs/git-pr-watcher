@@ -4,9 +4,16 @@ import { inject, observer } from 'mobx-react';
 import { ListPageProps, ListProps } from '../../types/list';
 import List from './list';
 
-@inject('settingsStore', 'githubStore')
+@inject('settingsStore', 'githubStore', 'navigationStore')
 @observer
 class ListPage extends React.Component<ListPageProps> {
+    componentWillMount() {
+        const { settingsStore, navigationStore } = this.props;
+
+        if( settingsStore.repositoryList.length === 0 ) {
+            return navigationStore.setActivePage( 'Settings' );
+        }
+    }
     render() {
         const { settingsStore, githubStore } = this.props;
 

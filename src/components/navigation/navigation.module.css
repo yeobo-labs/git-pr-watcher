@@ -1,0 +1,38 @@
+.container {
+  z-index: 100;
+  width: 100%;
+  margin: 0;
+  background-color: #b1a1d1;
+  color: #000;
+}
+
+.logo {
+  width: 40px;
+}
+
+.navItems {
+  list-style: none;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  display: inline;
+  padding: 6px;
+}
+
+.navItemLogo {
+  display: inline;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  vertical-align: middle;
+}
+
+.navItem:hover:not(navItemLogo),
+.navItemActive {
+  padding-bottom: 4px;
+  border-bottom: 4px solid #8158d4;
+  cursor: pointer;
+}
